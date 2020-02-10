@@ -7,7 +7,8 @@ call "%vspath%..\vc\vcvarsall.bat" amd64
 
 set v57=v8.1.2
 set v59=v9.2.0
-set v64=v10.13.0
+set v64=v10.19.0
+set v72=v12.15.0
 
 if not exist targets (
 mkdir targets
@@ -17,6 +18,8 @@ curl https://nodejs.org/dist/%v59%/node-%v59%-headers.tar.gz | tar xz -C targets
 curl https://nodejs.org/dist/%v59%/win-x64/node.lib > targets/node-%v59%/node.lib
 curl https://nodejs.org/dist/%v64%/node-%v64%.tar.gz | tar xz -C targets
 curl https://nodejs.org/dist/%v64%/win-x64/node.lib > targets/node-%v64%/node.lib
+curl https://nodejs.org/dist/%v72%/node-%v72%.tar.gz | tar xz -C targets
+curl https://nodejs.org/dist/%v72%/win-x64/node.lib > targets/node-%v72%/node.lib
 )
 
 cp README.md dist/README.md
@@ -29,6 +32,7 @@ cp src/uws.js dist/uws.js
 cl /I targets/node-%v57%/include/node /EHsc /Ox /LD /Fedist/uws_win32_57.node dist/src/*.cpp targets/node-%v57%/node.lib
 cl /I targets/node-%v59%/include/node /EHsc /Ox /LD /Fedist/uws_win32_59.node dist/src/*.cpp targets/node-%v59%/node.lib
 cl /I targets/node-%v64%/src /I targets/node-%v64%/deps/uv/include /I targets/node-%v64%/deps/v8/include /I targets/node-%v64%/deps/openssl/openssl/include /I targets/node-%v64%/deps/zlib /EHsc /Ox /LD /Fedist/uws_win32_64.node dist/src/*.cpp targets/node-%v64%/node.lib
+cl /I targets/node-%v72%/src /I targets/node-%v72%/deps/uv/include /I targets/node-%v72%/deps/v8/include /I targets/node-%v72%/deps/openssl/openssl/include /I targets/node-%v72%/deps/zlib /EHsc /Ox /LD /Fedist/uws_win32_64.node dist/src/*.cpp targets/node-%v72%/node.lib
 
 rm *.obj
 rm dist/*.exp
