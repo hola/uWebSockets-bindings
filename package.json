@@ -8,6 +8,6 @@
   "dependencies": {},
   "repository": {
     "type": "git",
-    "url": "https://github.com/luminati-io/uWebsockets-bindings.git"
+    "url": "https://github.com/hola/uWebsockets-bindings.git"
   }
 }
