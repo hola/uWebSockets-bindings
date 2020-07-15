@@ -8,7 +8,7 @@ call "%vspath%..\vc\vcvarsall.bat" amd64
 set v57=v8.1.2
 set v59=v9.2.0
 set v64=v10.19.0
-set v72=v12.15.0
+set v72=v12.18.2
 
 if not exist targets (
 mkdir targets
